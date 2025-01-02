@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
       username: user.username,
       name: user.name,
     };
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '30d' });
     res.status(200).json({ message: 'Login successful', token });
 
   } catch (error) {
@@ -73,5 +73,14 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+router.get('/register', (req, res) => {
+  res.send("This is register page");
+});
+
+router.get('/login', (req, res) => {
+  res.send("This is login page");
+});
+
 
 export default router;

@@ -3,15 +3,17 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
+import causeRoutes from './routes/causeRoutes.js';
 
 dotenv.config();
-const port = process.env.PORT || 5000;
+const port = 5555;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/', causeRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello world');
