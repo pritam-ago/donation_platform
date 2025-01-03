@@ -1,0 +1,55 @@
+.emerging-causes-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .emerging-causes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .emerging-causes-table th, .emerging-causes-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .emerging-causes-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .emerging-causes-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .emerging-causes-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .emerging-causes-table td {
+    font-size: 14px;
+  }
+  
+  .emerging-causes-table td:nth-child(4) {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .emerging-causes-table th, .emerging-causes-table td {
+      padding: 8px;
+      font-size: 12px;
+    }
+  
+    h3 {
+      font-size: 20px;
+    }
+  }
+  

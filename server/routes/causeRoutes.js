@@ -16,12 +16,35 @@ router.post('/causes', protect, async (req, res) => {
         createdBy: req.user._id,
       });
       const savedCause = await newCause.save();
+      req.user.raisedCauses.push(savedCause._id);
+      await req.user.save();
+  
       res.status(201).json(savedCause);
+
+
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'Error creating cause', error });
     }
   });
+router.get('/causes/search', async (req, res) => {
+  const { query } = req.query;
+
+  try {
+    if (!query || query.trim() === '') {
+      return res.status(400).json({ message: 'Search query is required' });
+    }
+
+    const causes = await Cause.find({
+      title: { $regex: query, $options: 'i' },
+    });
+
+    res.status(200).json(causes);
+  } catch (error) {
+    console.error('Error fetching causes:', error);
+    res.status(500).json({ message: 'Internal Server Error', error });
+  }
+});
 
 router.get('/causes', async (req, res) => {
     try {
@@ -43,6 +66,20 @@ router.get('/causes/:id', async (req, res) => {
         res.status(500).json({ message: 'Error fetching cause', error });
     }
 });
+
+router.get('/emerging-causes', async (req, res) => {
+  try {
+    const causes = await Cause.find()
+      .sort({ createdAt: -1 }) 
+      .limit(5); 
+    res.json(causes);
+  } catch (error) {
+    console.error('Error fetching emerging causes:', error);
+    res.status(500).json({ message: 'Failed to fetch emerging causes' });
+  }
+});
+
+
 
 
 export default router;

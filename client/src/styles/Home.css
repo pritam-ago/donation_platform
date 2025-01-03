@@ -1,0 +1,134 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    height: 100vh;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  .sidebar-left {
+    width: 120px; /* Adjusted width for the sidebar */
+    background-color: #f4f4f4;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar-left nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-left nav ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar-left nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1em; 
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .sidebar-left nav ul li a:hover {
+    background-color: #ddd;
+  }
+  
+  .main-content {
+    margin-left: 200px; 
+    margin-right: 320px; 
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .cause-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cause-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cause-card h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .cause-card h4 {
+    color: #4CAF50;
+    margin: 10px 0;
+  }
+  
+  .cause-card p {
+    font-size: 1em;
+    margin: 10px 0;
+  }
+  
+  .cause-card h6 {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .sidebar-right {
+    width: 300px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .emerging-causes, .leaderboard {
+    margin-bottom: 20px;
+  }
+  
+  h1, h3, h2 {
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .sidebar-left, .sidebar-right {
+      width: 180px;
+    }
+  
+    .main-content {
+      margin-left: 200px;
+      margin-right: 220px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column; 
+    }
+  
+    .sidebar-left, .sidebar-right {
+      width: 100%;
+      position: relative;
+    }
+  
+    .main-content {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  

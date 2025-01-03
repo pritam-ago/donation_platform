@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import api from '../services/api'; 
 import { useNavigate, Link } from 'react-router-dom';
+import '../styles/Home.css';
+import Leaderboard from '../components/Leaderboard';
+import EmergingCauses from '../components/EmergingCauses';
 
 const Home = () => {
   const [causes, setCauses] = useState([]);
@@ -32,21 +35,32 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <h1>Active Causes</h1>
-      <div>
-        {causes.map((cause) => (
-          <div key={cause._id}>
-            <h2>{cause.title}</h2>
-            <h4>Target amount: {cause.targetAmount}</h4>
-            <p>{cause.description}</p>
-            <h6>Raised by: {cause.createdBy.name}</h6>
-            <Link to={`/cause/${cause._id}`}>
-                <button>View details</button>
-            </Link>
-            
-          </div>
-        ))}
+    <div className="home-container">
+
+      <div className="main-content">
+        <h1>Active Causes</h1>
+        <div className="cause-list">
+          {causes.map((cause) => (
+            <div className="cause-card" key={cause._id}>
+              <Link to={`/cause/${cause._id}`} style={{ textDecoration: 'none' }}>
+                <h2>{cause.title}</h2>
+                <h4>Target amount: {cause.targetAmount}</h4>
+                <p>{cause.description}</p>
+                <h6>Raised by: {cause.createdBy.name}</h6>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="sidebar-right">
+        <div className="emerging-causes">
+          <EmergingCauses/>
+          
+        </div>
+        <div className="leaderboard">
+          <Leaderboard/>
+        </div>
       </div>
     </div>
   );

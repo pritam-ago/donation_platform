@@ -1,0 +1,80 @@
+
+.create-cause-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 20px;
+    color: #8C331F; 
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+  }
+  
+  h2 {
+    color: #8C331F;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 1rem;
+    color: #687343;
+  }
+  
+  input, textarea {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #D95525;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  button {
+    background-color: #8C331F; 
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #D95525; 
+  }
+  
+  .error-message {
+    color: #D95525;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; 
+  }
+  

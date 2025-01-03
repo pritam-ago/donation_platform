@@ -1,0 +1,44 @@
+.leaderboard-container {
+    background-color: #F2B885;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .leaderboard-container h3 {
+    color: #8C331F;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .leaderboard-table th {
+    background-color: #D95525;
+    color: white;
+  }
+  
+  .leaderboard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .leaderboard-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .leaderboard-table td {
+    color: #8C331F;
+  }
+  
