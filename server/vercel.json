@@ -15,6 +15,7 @@
     "env": {
       "MONGO_URI": "mongodb+srv://pritam:2CQZ1T2RlNig9zIV@mongooselp.o6gtn.mongodb.net/donation_platform?retryWrites=true&w=majority",
       "JWT_SECRET": "dd91225336857806556c0789faddfa52138f45510efd9f9b977efbdf508b2b29"
-    }
+    },
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }] 
   }
   
