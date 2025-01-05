@@ -27,10 +27,15 @@ app.get('/', (req, res) => {
     res.send('Hello world');
 });
 app.listen(port, () => console.log(`Server running on port ${port}`));
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('Connected to MongoDB');
-    
-  })
-  .catch((err) => console.error('Database connection error:', err));
+
+const connectDB = async ()=> {
+ await mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log('Connected to MongoDB');
+      
+    })
+    .catch((err) => console.error('Database connection error:', err));
+}
+
+connectDB();
