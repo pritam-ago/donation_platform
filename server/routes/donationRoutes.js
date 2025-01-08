@@ -10,7 +10,7 @@ dotenv.config();
 const router = express.Router();
 
 // Secret key for JWT verification (should be stored securely, not hardcoded)
-const JWT_SECRET = process.env.JWT_SECRET; // This should be in an environment variable, not hardcoded
+const jwtSecret = process.env.JWT_SECRET; // This should be in an environment variable, not hardcoded
 
 // POST /donate - Handle donation requests
 router.post('/donate', async (req, res) => {
@@ -23,7 +23,7 @@ router.post('/donate', async (req, res) => {
 
   try {
     // Verify the JWT token and extract userId
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, jwtSecret);
     const userId = decoded._id; // Assuming the _id is in the token payload
 
     // Ensure required fields are provided
