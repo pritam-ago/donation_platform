@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5555',  
+  baseURL: 'https://donation-platform-api.vercel.app',  
   headers: {
     'Authorization': `Bearer ${localStorage.getItem('token')}`,
   },

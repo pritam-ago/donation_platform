@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Home.css';
 import Leaderboard from '../components/Leaderboard';
 import EmergingCauses from '../components/EmergingCauses';
+import Header from '../components/Header';
 
 const Home = () => {
   const [causes, setCauses] = useState([]);
@@ -36,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-
+      <Header/>
       <div className="main-content">
         <h1>Active Causes</h1>
         <div className="cause-list">

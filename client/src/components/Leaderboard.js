@@ -8,7 +8,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await api.get('http://localhost:5555/api/user/leaderboard'); 
+        const response = await api.get('https://donation-platform-api.vercel.app/api/user/leaderboard'); 
         const data = response.data;
 
         const sortedData = data.sort((a, b) => b.totalDonated - a.totalDonated);

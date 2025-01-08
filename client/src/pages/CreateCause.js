@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CreateCause.css';
+import Header from '../components/Header';
 
 const CreateCause = () => {
   const [title, setTitle] = useState('');
@@ -16,7 +17,7 @@ const CreateCause = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5555/api/causes', 
+        'https://donation-platform-api.vercel.app/api/causes', 
         {
           title,
           description,
@@ -39,6 +40,7 @@ const CreateCause = () => {
 
   return (
     <div className="create-cause-container">
+      <Header/>
       <form onSubmit={handleSubmit}>
         <h2>Create Cause</h2>
         <div>

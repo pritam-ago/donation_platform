@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
 
 const Donations = () => {
     const [donations, setDonations] = useState([]);
@@ -9,7 +10,7 @@ const Donations = () => {
     useEffect(() => {
         const fetchDonations = async () => {
             try {
-                const response = await axios.get('http://localhost:5555/api/user/donations', {
+                const response = await axios.get('https://donation-platform-api.vercel.app/api/user/donations', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -29,7 +30,8 @@ const Donations = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div style={{ padding: '20px', backgroundColor: '#F2B885' }}>
+        <div style={{ padding: '20px', backgroundColor: '#F2B885',marginTop : '90px' }}>
+            <Header/>
             <h1 style={{ color: '#8C331F' }}>My Donations</h1>
             {donations.length === 0 ? (
                 <p style={{ color: '#687343' }}>No donations made yet.</p>
