@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import causeRoutes from './routes/causeRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import donationRoutes from './routes/donationRoutes.js';
 
 const corsOptions = {
   origin: 'http://localhost:5000',
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/', causeRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api', donationRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello world');
