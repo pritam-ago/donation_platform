@@ -1,125 +1,59 @@
-/* Profile.css */
-
-/* Ensuring the body and html take full height and don't break */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Make the whole page scrollable */
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;      /* Ensures the profile page takes up the entire viewport height */
-  overflow-y: auto;   /* Allow the page to scroll if content exceeds viewport */
-  padding: 30px 20px;
-  box-sizing: border-box;
-  background-color: #f4f4f4; /* Optional background color */
-  margin-top: calc(80px + 20px);
-}
-
-/* Profile Header */
-.profile-header {
+  padding: 20px;
+  background-color: #F2B885; 
+  color: #8C331F; 
+  font-family: Arial, sans-serif;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.profile-header h1 {
-  font-size: 3rem;
-  color: #D95525;
-  margin-bottom: 10px;
+h1 {
+  color: #8C331F; 
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
+.profile-details {
+  background-color: #D95525;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
 
-/* Each Profile Item */
 .profile-item {
+  margin-bottom: 15px;
   font-size: 1.2rem;
-  color: #333;
 }
 
 .profile-item strong {
-  color: #D95525;
+  color: #F29544; 
 }
 
-ul {
-  margin-top: 10px;
-  padding-left: 20px;
-  font-size: 1rem;
-  color: #444;
-}
-
-li {
-  margin-bottom: 10px;
-  list-style-type: square;
-}
-
-/* Toggle Raised/Donated Causes */
-.cause-list {
+.profile-item ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
   margin-top: 10px;
 }
 
-.cause-list strong {
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: #4CAF50;
+.profile-item li {
+  font-size: 1.1rem;
   margin-bottom: 5px;
-  transition: color 0.3s ease;
+  color: #687343;
 }
 
-.cause-list strong:hover {
-  color: #2c7c2b;
-}
-
-.cause-list ul {
-  display: none;
-  margin-top: 5px;
-}
-
-.cause-list.open ul {
-  display: block;
-}
-
-/* Button Styling */
 .logout-btn {
-  background-color: #D95525;
-  color: #fff;
-  padding: 12px 25px;
-  font-size: 1.2rem;
+  background-color: #8C331F; 
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  align-self: center;
-  margin-top: 30px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .logout-btn:hover {
-  background-color: #F29544;
+  background-color: #D95525;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .profile-header h1 {
-    font-size: 2.5rem;
-  }
-
-  .profile-details {
-    padding: 15px;
-  }
-
-  .profile-item {
-    font-size: 1rem;
-  }
-
-  .cause-list strong {
-    font-size: 1rem;
-  }
-
-  .logout-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-}

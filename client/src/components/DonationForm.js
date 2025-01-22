@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import api from '../services/api';
 
 const DonationForm = ({ causeId, userId }) => {
   const [amount, setAmount] = useState('');
@@ -7,7 +8,7 @@ const DonationForm = ({ causeId, userId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/donate', { userId, causeId, amount });
+      const response = await api.post('/api/donate', { userId, causeId, amount });
       alert('Donation successful!');
     } catch (error) {
       alert('Error making donation: ' + error.response.data.error);

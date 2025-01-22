@@ -1,6 +1,6 @@
 .emerging-causes-container {
     padding: 20px;
-    background-color: #F2B885;
+    background-color: #fff;
     border-radius: 8px;
   }
   
@@ -22,7 +22,7 @@
   }
   
   .emerging-causes-table th {
-    background-color: #D95525;
+    background-color: #f2f2f2;
     font-weight: bold;
   }
   

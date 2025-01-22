@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/Profile.css";
-import Header from "../components/Header";
+import '../styles/Profile.css';
+import api from "../services/api";
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
-  const [isDonatedOpen, setIsDonatedOpen] = useState(false);
-  const [isRaisedOpen, setIsRaisedOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,14 +13,11 @@ const Profile = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get(
-          "https://donation-platform-api.vercel.app/api/user/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await api.get("/api/user/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         setUserData(response.data);
       } catch (error) {
@@ -35,16 +30,8 @@ const Profile = () => {
   }, [navigate]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("token"); 
     navigate("/");
-  };
-
-  const toggleDonatedList = () => {
-    setIsDonatedOpen((prev) => !prev);
-  };
-
-  const toggleRaisedList = () => {
-    setIsRaisedOpen((prev) => !prev);
   };
 
   if (!userData) {
@@ -53,17 +40,13 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <Header/>
-      <div className="profile-header">
-        <h1>Profile</h1>
-      </div>
-
+      <h1>Profile</h1>
       <div className="profile-details">
         <div className="profile-item">
-           {userData.name}
+          <strong>Name:</strong> {userData.name}
         </div>
         <div className="profile-item">
-          {userData.username}
+          <strong>Username:</strong> {userData.username}
         </div>
         <div className="profile-item">
           <strong>Email:</strong> {userData.email}
@@ -71,33 +54,24 @@ const Profile = () => {
         <div className="profile-item">
           <strong>Total Donated Amount:</strong> ${userData.totalDonatedAmount}
         </div>
-
-        <div className={`profile-item cause-list ${isDonatedOpen ? "open" : ""}`}>
-          <strong onClick={toggleDonatedList}>Donated Causes</strong>
-          {isDonatedOpen && (
-            <ul>
-              {userData.donatedTo.map((cause, index) => (
-                <li key={index}>{cause.title}</li>
-              ))}
-            </ul>
-          )}
+        <div className="profile-item">
+          <strong>Donated Causes:</strong>
+          <ul>
+            {userData.donatedTo.map((cause, index) => (
+              <li key={index}>{cause.title}</li>
+            ))}
+          </ul>
         </div>
-
-        <div className={`profile-item cause-list ${isRaisedOpen ? "open" : ""}`}>
-          <strong onClick={toggleRaisedList}>Raised Causes</strong>
-          {isRaisedOpen && (
-            <ul>
-              {userData.raisedCauses.map((cause, index) => (
-                <li key={index}>{cause.title}</li>
-              ))}
-            </ul>
-          )}
+        <div className="profile-item">
+          <strong>Raised Causes:</strong>
+          <ul>
+            {userData.raisedCauses.map((cause, index) => (
+              <li key={index}>{cause.title}</li>
+            ))}
+          </ul>
         </div>
       </div>
-
-      <button onClick={handleLogout} className="logout-btn">
-        Logout
-      </button>
+      <button onClick={handleLogout} className="logout-btn">Logout</button>
     </div>
   );
 };
